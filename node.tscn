@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv21pyjam7d23"]
+
+[ext_resource type="Script" path="res://resize.gd" id="1_3803h"]
+[ext_resource type="Texture2D" uid="uid://dpp87dox8bm4p" path="res://ball.png" id="2_3vu67"]
+[ext_resource type="Script" path="res://player.gd" id="3_lte38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xubbh"]
+size = Vector2(400, 100)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_acb35"]
+size = Vector2(400, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n67ao"]
+size = Vector2(100, 400)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m5lri"]
+size = Vector2(100, 400)
+
+[node name="world" type="Node"]
+script = ExtResource("1_3803h")
+
+[node name="map" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map"]
+position = Vector2(500, 350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D"]
+shape = SubResource("RectangleShape2D_xubbh")
+
+[node name="collider" type="Sprite2D" parent="map/StaticBody2D"]
+texture = SubResource("PlaceholderTexture2D_acb35")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="map"]
+position = Vector2(500, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_xubbh")
+
+[node name="collider" type="Sprite2D" parent="map/StaticBody2D2"]
+texture = SubResource("PlaceholderTexture2D_acb35")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="map"]
+position = Vector2(350, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D3"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_n67ao")
+
+[node name="collider" type="Sprite2D" parent="map/StaticBody2D3"]
+texture = SubResource("PlaceholderTexture2D_m5lri")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="map"]
+position = Vector2(650, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_n67ao")
+
+[node name="collider" type="Sprite2D" parent="map/StaticBody2D4"]
+texture = SubResource("PlaceholderTexture2D_m5lri")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="map"]
+position = Vector2(650, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_xubbh")
+
+[node name="collider" type="Sprite2D" parent="map/StaticBody2D5"]
+texture = SubResource("PlaceholderTexture2D_acb35")
+
+[node name="player" type="Sprite2D" parent="."]
+texture = ExtResource("2_3vu67")
+script = ExtResource("3_lte38")
